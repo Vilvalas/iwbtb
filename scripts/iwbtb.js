@@ -868,11 +868,16 @@ function loadGame(level, deaths, shots, callback) {
     Q.state.set({shots: shots});
 
     // load game files
+	// Level images
+	Q.load("tiled_objects_TEST.png",null,{nameOverwrite: 'tiled_objects.png'});
+	Q.load("tiled_collision.png");
+	Q.load("tiled_backgrounds.png");
+	Q.load("tiled_fruit.png");
+	// sprites
+	Q.load("player_TEST.png",null,{nameOverwrite: 'player.png'});
+	
     Q.load(
-		// Level images
-		"tiled_objects.png, tiled_collision.png, tiled_backgrounds.png, tiled_fruit.png, " +
-        // sprites
-        "player.png, hdSpikes.png, hdSpikes.json, fruit.png, fruit.json, utility.png, utility.json, " +
+        "hdSpikes.png, hdSpikes.json, fruit.png, fruit.json, utility.png, utility.json, " +
         "boss1.png, boss1.json, boss2.png, boss2.json, gameover.png, gameover.json, " +
         // sounds + music
         "jump.mp3, doubleJump.mp3, shoot.mp3, fall.mp3, blockChange.mp3, bossHit.mp3, death.mp3, boss2_intro.mp3, boss2_death.mp3, boss2_teleport.mp3, " +
