@@ -1,6 +1,14 @@
 // initialises the user stats from the parameters, given by iwbtb.html, which got them from the database
 function loadGame(level, deaths, shots, callback) {
-	var level1JSON = { "compressionlevel":-1,
+	var playerJson = {
+  "player_death":{"sx":0,"sy":0,"cols":16,"tilew":32,"tileh":32,"frames":16},
+  "player_idle":{"sx":0,"sy":32,"cols":4,"tilew":32,"tileh":32,"frames":4},
+  "player_walking":{"sx":128,"sy":32,"cols":4,"tilew":32,"tileh":32,"frames":4},
+  "player_jumping":{"sx":256,"sy":32,"cols":2,"tilew":32,"tileh":32,"frames":2},
+  "player_falling":{"sx":320,"sy":32,"cols":2,"tilew":32,"tileh":32,"frames":2}
+};
+	
+	var level1Json = { "compressionlevel":-1,
  "height":19,
  "infinite":false,
  "layers":[
@@ -864,14 +872,14 @@ function loadGame(level, deaths, shots, callback) {
 		// Level images
 		"tiled_objects.png, tiled_collision.png, tiled_backgrounds.png, tiled_fruit.png, " +
         // sprites
-        "player.png, player.json, hdSpikes.png, hdSpikes.json, fruit.png, fruit.json, utility.png, utility.json, " +
+        "player.png, hdSpikes.png, hdSpikes.json, fruit.png, fruit.json, utility.png, utility.json, " +
         "boss1.png, boss1.json, boss2.png, boss2.json, gameover.png, gameover.json, " +
         // sounds + music
         "jump.mp3, doubleJump.mp3, shoot.mp3, fall.mp3, blockChange.mp3, bossHit.mp3, death.mp3, boss2_intro.mp3, boss2_death.mp3, boss2_teleport.mp3, " +
         "stage1.mp3, stage2.mp3, stage3.mp3, boss1.mp3, boss2.mp3, credits.mp3", function () {
             // Quintus takes the separate pictures from the png according to the json-file
             // the next line alone creates the sprite sheets player_death, player_idle, player_walking, player_jumping and player_falling
-            Q.compileSheets("player.png", "player.json");
+            Q.compileSheets("player.png", playerJson);
             Q.compileSheets("hdSpikes.png", "hdSpikes.json");
             Q.compileSheets("fruit.png", "fruit.json");
             Q.compileSheets("utility.png", "utility.json");
@@ -890,7 +898,7 @@ function loadGame(level, deaths, shots, callback) {
         // the bullet objects get destroyed by staging a level, so we can set the active bullet counter to 0
         Q.state.set({bullets: 0});
 		
-        Q.stageJSON(level1JSON, stage);
+        Q.stageJSON(level1Json, stage);
 		// Q.stageTMX("level1.tmx", stage);
 		// Q.stageTMX("level" + currentLevel + ".tmx", stage);
 		
