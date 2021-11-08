@@ -860,10 +860,9 @@ function loadGame(level, deaths, shots, callback) {
     Q.state.set({shots: shots});
 
     // load game files
-    Q.loadTMX(
-        // levels
-		// This is needed to load the images!!!
-        "level1.tmx, " +
+    Q.load(
+		// Level images
+		"tiled_objects.png, tiled_collision.png, tiled_backgrounds.png, tiled_fruit.png, " +
         // sprites
         "player.png, player.json, hdSpikes.png, hdSpikes.json, fruit.png, fruit.json, utility.png, utility.json, " +
         "boss1.png, boss1.json, boss2.png, boss2.json, gameover.png, gameover.json, " +
