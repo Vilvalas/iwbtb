@@ -891,8 +891,8 @@ function loadGame(level, deaths, shots, callback) {
         // the bullet objects get destroyed by staging a level, so we can set the active bullet counter to 0
         Q.state.set({bullets: 0});
 		
-        // Q.stageJSON(level1JSON, stage);
-		Q.stageTMX("level1.tmx", stage);
+        Q.stageJSON(level1JSON, stage);
+		// Q.stageTMX("level1.tmx", stage);
 		// Q.stageTMX("level" + currentLevel + ".tmx", stage);
 		
         // music is supposed to keep playing for specific stages in a row
