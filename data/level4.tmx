@@ -1675,7 +1675,7 @@
    <properties>
     <property name="maxX" value="656"/>
     <property name="minX" value="592"/>
-    <property name="vx" value="150"/>
+    <property name="vx" value="75"/>
    </properties>
   </object>
   <object id="415" gid="25" x="600" y="136" width="32" height="32"/>
